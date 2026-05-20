@@ -1,0 +1,29 @@
+@model TodoMVC.Models.Productos
+
+@{
+    ViewData["Title"] = "Nuevo producto";
+}
+
+<div class="container container-sm">
+    <h1>Nuevo producto</h1>
+    @if (ViewBag.Error != null)
+    {
+        <p style="color:red">@ViewBag.Error</p>
+    }
+    <form method="post" action="/Productos/Aniadir">
+        <div class="form-group">
+            <label for="nombre">Nombre del producto</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Leche, Pan" autofocus required />
+        </div>
+
+        <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad" value="1" min="1" required />
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/Productos" class="btn">Cancelar</a>
+        </div>
+    </form>
+</div>

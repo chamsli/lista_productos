@@ -1,0 +1,50 @@
+@model TodoMVC.Models.Productos
+
+@{
+    ViewData["Title"] = "Detalle del producto";
+}
+
+<div class="detalle-container">
+    <h1 class="page-title">
+        <span>🔍</span> Detalle del producto
+    </h1>
+
+    <div class="detalle-card">
+        <div class="detalle-item">
+            <div class="detalle-label">
+                <span>🏷️</span> Nombre:
+            </div>
+            <div class="detalle-valor">@Model.nombre</div>
+        </div>
+        <div class="detalle-item">
+            <div class="detalle-label">
+                <span>📦</span> Cantidad:
+            </div>
+            <div class="detalle-valor">@Model.cantidad unidad(es)</div>
+        </div>
+        <div class="detalle-item">
+            <div class="detalle-label">
+                <span>✅</span> Estado:
+            </div>
+            <div class="detalle-valor">
+                @if (Model.comprado)
+                {
+                    <span class="estado-comprado-detalle">✔ Comprado</span>
+                }
+                else
+                {
+                    <span class="estado-pendiente-detalle">⏳ Pendiente</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <a href="/Productos/Editar/@Model.Id" class="btn btn-warning">
+            ✏️ Editar producto
+        </a>
+        <a href="/Productos" class="btn-secondary">
+            <-- Volver al listado
+        </a>
+    </div>
+</div>
